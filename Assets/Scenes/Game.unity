@@ -349,6 +349,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114025871577249398, guid: 85a5f97a87db8c04f94f69ebf9d053a8,
+        type: 2}
+      propertyPath: _friction
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114025871577249398, guid: 85a5f97a87db8c04f94f69ebf9d053a8,
+        type: 2}
+      propertyPath: _moveSpeedMax
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114025871577249398, guid: 85a5f97a87db8c04f94f69ebf9d053a8,
+        type: 2}
+      propertyPath: _moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85a5f97a87db8c04f94f69ebf9d053a8, type: 2}
   m_IsPrefabParent: 0
@@ -903,6 +918,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
+  accel: 20
+  friction: 200
+  maxSpeed: 5
 --- !u!50 &1376364929
 Rigidbody2D:
   serializedVersion: 4
