@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour {
     public float accel = 20;
     public float friction = 200;
     public float maxSpeed = 5;
-    Vector2 velocity = new Vector2();
+    Vector3 velocity = new Vector2();
 
     void Start()
     {
@@ -51,21 +51,33 @@ public class Movement : MonoBehaviour {
             }
         }
 
-        /*if (im.Up())
-        {
-            rgb2.transform.position += Vector3.up * speed * Time.deltaTime;
-        }
-        if (im.Down())
-        {
-            rgb2.transform.position += Vector3.down * speed * Time.deltaTime;
-        }
-        if (im.Left())
-        {
-            rgb2.transform.position += Vector3.left * speed * Time.deltaTime;
-        }
         if (im.Right())
         {
-            rgb2.transform.position += Vector3.right * speed * Time.deltaTime;
-        }*/
+            velocity.x += speed * Time.deltaTime;
+            if (velocity.x > maxSpeed)
+                velocity.x = maxSpeed;
+        }
+        else if (im.Left())
+        {
+            velocity.x -= speed * Time.deltaTime;
+            if (velocity.x < -maxSpeed)
+                velocity.x = -maxSpeed;
+        }
+        else
+        {
+            if (velocity.x > 0)
+            {
+                velocity.x -= friction * Time.deltaTime;
+                if (velocity.x < 0) velocity.x = 0;
+            }
+            else if (velocity.x < 0)
+            {
+                velocity.x += friction * Time.deltaTime;
+                if (velocity.x > 0) velocity.x = 0;
+            }
+        }
+
+        rgb2.velocity = Vector2.zero;
+        rgb2.MovePosition(transform.position + velocity);
     }
 }
